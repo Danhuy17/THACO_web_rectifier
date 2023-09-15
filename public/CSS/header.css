@@ -1,0 +1,348 @@
+/* =====================================================================================
+                                      HEADER BAR                                     
+=====================================================================================*/
+#header{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: var(--tophead);
+    width: 100%;
+    background-color: var(--headercolor);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+
+
+/* ===============================================================
+                        HEADER BAR - MENU                                   
+=================================================================*/
+.header-menu {
+    color: rgb(170,170,170);
+    margin-left: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.header-menu:hover {
+    color: white;
+}
+
+
+/* ===============================================================
+                        HEADER BAR - LOGO                                   
+=================================================================*/
+.header-logo{
+    width: 10%;
+    margin-left: 30px;
+    cursor: pointer;
+    display: block; /*Mobile thi hidden */
+}
+.header-logo:hover {
+    filter: brightness(1.1);
+}
+.header-logo:active {
+    transform: scale(0.99);
+}
+
+/* ===============================================================
+                        HEADER BAR - TITTLE                                   
+=================================================================*/
+.header-tittle{
+    color: white;
+    font-family: var(--font);
+    font-size: 1rem;
+    margin-left: 30px;
+}
+
+/* ===============================================================
+                        HEADER BAR - LANGUAGE                                   
+=================================================================*/
+.header-language{
+    position: relative;
+    background-color: var(--headercolor);
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    width: 145px;
+    margin-left: 30px;
+}
+
+.button_language{
+    display: flex;
+    align-items: center;
+    color: rgb(170,170,170);
+    font-size: 1rem ;
+    cursor: pointer;
+    font-family: var(--font);
+    max-height: 100%;
+}
+.button_language i{
+    margin: 0 5px;
+}
+.button_language:hover,
+.button_language.active {
+    color: white;
+}
+
+/* ===============================================================
+                        HEADER BAR - F12                                   
+=================================================================*/
+.header-f12 {
+    color: rgb(170,170,170);
+    margin-left: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: block;
+}
+
+.header-f12:hover {
+    color: white;
+}
+
+#maximizeIcon.selected, #compressIcon.selected {
+    color: white;
+}
+
+
+/* ========================================
+    HEADER BAR - LANGUAGE - DROPDOWN                                
+==========================================*/
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0; 
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+  }
+  
+.dropdown-content a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-family: var(--font);
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+.dropdown-content a:hover {
+    background-color: #2e2d2d;
+    color:white;
+  }
+   
+.dropdown-content p {
+    font-size: 1rem;
+  } 
+  
+.flag-icon {
+    width: 21px;
+    margin-right: 9px;
+    height: auto;
+    vertical-align: middle;
+  }
+
+/* ===============================================================
+                        HEADER BAR - USER                                  
+=================================================================*/
+.header-user{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: rgb(170,170,170);
+    margin-right: 10px;
+    font-family: var(--font);
+    font-size: 1rem;
+}
+.header-user i {
+    margin-right: 5px;
+}
+.header-user:hover {
+    color: white;
+}
+
+
+  
+
+/* =====================================================================================
+                                      CHECK-EFFECT                                   
+=====================================================================================*/
+.menu-check:checked ~ .nav_overlay{
+    display: block;
+}
+
+.menu-check:checked ~ .nav_slide{
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+
+/* =====================================================================================
+                                      NAVIGATION SLIDE                                     
+=====================================================================================*/
+/* ===============================================================
+                        NAV - OVERLAY                                 
+=================================================================*/
+.nav_overlay{
+    position: fixed;
+    top:0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    animation: fadeIn linear 0.3s;
+}
+
+/* ===============================================================
+                        NAV - SLIDE                                 
+=================================================================*/
+.nav_slide {
+    position: fixed;
+    top:0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 100%; /*Origin ko co cai nay*/
+    height: 100%;
+    background-color: white;
+    display: block;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform linear 0.2s, opacity linear 0.2s;
+}
+
+/* ========================================
+         NAV - SLIDE - LIST                               
+==========================================*/
+
+.nav_slide-list{
+    padding-left: 0px;
+}
+
+/* ========================================
+         NAV - SLIDE - BUTTON                               
+==========================================*/
+.nav_slide-button{
+    display: flex;
+    padding: 8px 0;
+    align-items: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    cursor: pointer;
+    color: #666;
+    font-family: var(--font);
+    transition-duration: 0.4s;
+    border-radius: 3px;
+}
+.nav_slide-button i {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10%;
+}
+.nav_slide-button:hover{
+    background-color: var(--barhover);
+    color: white;
+}
+.nav_slide-button:focus{
+    background-color:var(--blue);
+    color: black;
+}
+
+/* ========================================
+         NAV - SLIDE - BUTTON  CLOSE                           
+==========================================*/
+
+.nav_slide-close{
+    font-size: 1.3rem; /*Modify this variable to adjust icon's size*/
+    color:black;
+    position: absolute;
+    top:1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+.nav_slide-close:hover{
+    filter: brightness(1.4);
+    transform: scale(1.2);
+}
+.nav_slide-button i:hover {
+    filter: brightness(1.4);
+    transform: scale(1.2);
+}
+
+
+/* ===============================================================
+                        NAV - IMAGE                                   
+=================================================================*/
+.nav_image-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#navImage {
+    display: block;
+    max-width: 75%;
+    height: auto;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  #navImage:active {
+    transform: scale(0.99);
+  }
+  
+  #navImage:hover {
+    filter: brightness(1.1);
+  }
+
+/* ===============================================================
+                        EFFECT FOR OVERLAY                                  
+=================================================================*/
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* =====================================================================================
+                             REPONSIVE FOR MOBILE
+  =====================================================================================*/
+/* Mobile: width < 740 px */
+@media only screen and (max-width: 46.1875em) {
+    .header-logo {
+        display: none;
+    }
+
+    .header-tittle {
+        margin-left: 0;
+    }
+
+    .header-language {
+        display: none;
+    }
+    .header-f12 {
+        display: none;
+    }
+}
+
+/* =====================================================================================
+                             REPONSIVE FOR TABLET
+  =====================================================================================*/
+/* Table: width >= 740 px and width <1024 px */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+    .header-f12 {
+        display: none;
+    }
+}

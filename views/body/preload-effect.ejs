@@ -1,0 +1,19 @@
+<div class="preload-overlay"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const preloadOverlay = document.querySelector('.preload-overlay');
+
+        // Thêm lớp CSS để bắt đầu hiệu ứng phát sáng
+        preloadOverlay.classList.add('glow');
+
+        setTimeout(() => {
+            // Loại bỏ lớp CSS sau khi hiệu ứng kết thúc
+            preloadOverlay.classList.remove('glow');
+            requestAnimationFrame(() => {
+                preloadOverlay.style.transform = "translateY(-100%)"; // Di chuyển overlay ra khỏi màn hình
+            });
+        }, 2000); 
+    });
+
+</script>

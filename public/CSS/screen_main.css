@@ -1,0 +1,118 @@
+/* =====================================================================================
+                                MAN HINH CHINH
+  =====================================================================================*/
+#Screen_Main {
+    overflow: auto;
+    position: absolute;
+    top: var(--tophead);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: var(--height);
+    background-color: var(--bgcolor);
+}
+/* ===============================================================
+                             IMAGE                                   
+=================================================================*/
+#EDA {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===============================================================
+                             LIST                                   
+=================================================================*/
+.list-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 17px;
+    margin: 22px;
+}
+
+.list-container .list-item {
+    background-color: var(--shapecolor);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: var(--font);
+}
+
+.list-knob{
+    display: block !important;
+    text-align: center;
+    margin: 10px 0 -45px;
+}
+
+.list-text{
+    text-align: center;
+}
+
+/* .list > div {
+    background-color: var(--shapecolor);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    font-family: var(--font);
+    align-items: center;
+    padding: 12px 32px;
+} */
+
+
+/* ===============================================================
+                        SHAPE MODULE FAULT                                   
+=================================================================*/
+.shape_fault {
+    display: flex;
+    flex-direction: column;
+    /* Thêm thuộc tính này để sắp xếp theo chiều dọc */
+    justify-content: center;
+    /* Căn giữa theo chiều dọc */
+    align-items: center;
+    /* Căn giữa theo chiều ngang */
+    width: 200px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    font-family: var(--font);
+    text-align: center;
+    margin-top: 15px;
+}
+
+.inner_shape_fault {
+    background-color: white;
+    color: black;
+    width: 200px;
+    height: 70px;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+}
+
+/* =====================================================================================
+                             REPONSIVE FOR MOBILE
+  =====================================================================================*/
+/* Mobile: width < 740 px */
+@media only screen and (max-width: 46.1875em) {
+    .list-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =====================================================================================
+                             REPONSIVE FOR TABLET
+  =====================================================================================*/
+/* Table: width >= 740 px and width <1024 px */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+
+
+}

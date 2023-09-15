@@ -1,0 +1,66 @@
+#Screen_Setting {
+    overflow: auto;
+    position: absolute;
+    top: var(--tophead);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: var(--height);
+    background-color: var(--bgcolor);
+}
+
+.Setting_list-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 16px;
+    margin: 25px;
+}
+
+.rectangle{
+    background-color: var(--shapecolor);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    text-align: left;
+    font-family: var(--font);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 32px;
+}
+
+
+.innershape{
+    flex-shrink: 0;
+    width: 100px;
+    color: #000;
+    height: 50px;
+    background-color: lightgray;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+
+/* =====================================================================================
+                             REPONSIVE FOR MOBILE
+  =====================================================================================*/
+/* Mobile: width < 740 px */
+@media only screen and (max-width: 46.1875em) {
+    .Setting_list-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =====================================================================================
+                             REPONSIVE FOR TABLET
+  =====================================================================================*/
+/* Tablet: width >= 740 px and width <1024 px */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+  
+}

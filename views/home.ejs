@@ -1,0 +1,93 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Duy Anh - R&D">
+
+    <title>
+        <%= __('RECTIFIER MONITORING SYSTEM') %>
+    </title>
+
+    <script src="socket.io/socket.io.js"></script>
+    
+
+    <!--______________KHỞI TẠO SOCKET.IO______________ -->
+    <script>
+        var socket = io("localhost:3000")
+        socket.on('error', function (message) {
+            alert(message);
+        });
+    </script>
+
+    <!--______________TRUYỀN TÊN VIET/ENG______________ -->
+    <script>
+        var noErroredModuleText = '<%= __("NO ERRORED MODULE") %>';
+    </script>
+
+    <!--______________KHAI BÁO CÁC SOURCE______________ -->
+    <script src="https://kit.fontawesome.com/212982cf09.js" crossorigin="anonymous"></script>
+    <script src="js/plotly-2.8.3.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
+    <script src="js/FileSaver.js"></script>
+
+    <!--______________ĐƯỜNG DẪN CÁC FILE FUNCTION JS______________ -->
+    <script src="js/FC1_Common.js"></script>
+    <script src="js/FC2_Alarm_Screen.js"></script>
+    <script src="js/FC3_Data_Screen.js"></script>
+
+
+    <!--______________KHAI BÁO CÁC FILE SOCKET______________ -->
+    <script src="/js/socket/main.js"></script>
+    <script src="/js/socket/setting.js"></script>
+    <script src="/js/socket/status.js"></script>
+    <script src="/js/socket/module.js"></script>
+
+
+    <!--______________ĐƯỜNG DẪN CSS______________ -->
+    <link rel="stylesheet" href="CSS/root.css">
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/slidebar.css">
+    <link rel="stylesheet" href="CSS/screen_main.css">
+    <link rel="stylesheet" href="CSS/screen_setting.css">
+    <link rel="stylesheet" href="CSS/screen_chart.css">
+    <link rel="stylesheet" href="CSS/screen_modulestt.css">
+    <link rel="stylesheet" href="CSS/screen_alarm.css">
+    <link rel="stylesheet" href="CSS/screen_status.css">
+    <link rel="stylesheet" href="CSS/screen_data.css">
+    <link rel="stylesheet" href="CSS/preload-effect.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+    <!--______________ĐƯỜNG DẪN FAVICON______________ -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script>
+
+
+    <%- include ('./body/preload-effect.ejs') %>
+        <%- include ('./body/screen_Setting.ejs') %>
+            <%- include ('./body/screen_Status.ejs') %>
+                <%- include ('./body/screen_Module.ejs') %>
+                    <%- include ('./body/screen_Alarm.ejs') %>
+                        <%- include ('./body/screen_Chart.ejs') %>
+                            <%- include ('./body/screen_Data.ejs') %>
+                                <%- include ('./body/screen_Main.ejs') %>
+                                    <%- include ('./body/header.ejs') %>
+
+
+
+
+
+</body>
+
+</html>

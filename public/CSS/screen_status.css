@@ -1,0 +1,227 @@
+#Screen_Status {
+    overflow: auto;
+    position: absolute;
+    top: var(--tophead);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: var(--height);
+    background-color: var(--bgcolor);
+}
+
+/* =====================================================================================
+                                    PHẦN TRÊN
+  =====================================================================================*/
+.uplist_grid-container {
+    display: grid;
+    max-width: calc(100% - 64px);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 32px;
+    margin: 20px 32px 0px 32px;
+}
+
+.uplist_grid-container>div {
+    background-color: var(--shapecolor);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: none;
+    font-size: 0.85rem;
+    text-align: center;
+    font-family: var(--font);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 80%;
+}
+
+/* =====================================================================================
+                                    PHẦN DƯỚI
+  =====================================================================================*/
+
+/* Grid 3 cột - Tổng */
+.downlist_grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin: 20px 20px 0 20px;
+}
+
+
+/* ===============================================================
+                        2 SHAPE ĐÂU                                
+=================================================================*/
+
+.downlist_grid-child {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 280px;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #505050;
+    align-self: center;
+    margin-top: 40px;
+}
+
+.top_text_status {
+    text-align: center;
+    font-family: var(--font);
+    color: rgb(255, 255, 255);
+    font-size: 0.875rem;
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    align-self: flex-start;
+}
+
+.box_countdown {
+    width: 100px;
+    color: #000;
+    height: 50px;
+    font-size: 0.875rem;
+    font-family: var(--font);
+    background-color: lightgray;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    margin-top: 20px;
+}
+
+/* ========================================
+           SHAPE THỨ 3 - TẠO 2 ROW                          
+==========================================*/
+.child_grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 200px 80px;
+}
+
+/* ====================
+SHAPE THỨ 3 - ROW 1                                
+=====================*/
+.chill_grid-row_I>div {
+    height: 26px;
+    background-color: var(--yellow);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: none;
+    font-size: 0.875rem;
+    text-align: left;
+    font-family: var(--font);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 32px;
+    position: relative;
+    margin-top: 8px;
+}
+
+.child_grid-shape {
+    flex-shrink: 0;
+    width: 77px;
+    color: #000;
+    height: 33px;
+    background-color: lightgray;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 33px;
+    margin-right: -18px;
+}
+
+/* ====================
+SHAPE THỨ 3 - ROW 2                                
+=====================*/
+/* Chia thành 2 row 2 col */
+.chill_grid-row_II {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 5px;
+}
+
+.chill_grid-row_II>div {
+    background-color: rgb(105, 100, 100);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: none;
+    font-size: 0.85rem;
+    text-align: center;
+    font-family: var(--font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* =====================================================================================
+                                    KEYFRAME
+  =====================================================================================*/
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
+    }
+
+    50% {
+        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+    }
+
+    100% {
+        box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
+    }
+}
+
+.glow {
+    animation: glow 2s infinite;
+}
+
+.rectangle_status_green {
+    background-color: rgb(0, 128, 0);
+}
+
+.rectangle_status_red {
+    background-color: rgb(217, 0, 0);
+}
+
+/* =====================================================================================
+                             REPONSIVE FOR MOBILE
+  =====================================================================================*/
+/* Mobile: width < 740 px */
+@media only screen and (max-width: 46.1875em) {
+    .uplist_grid-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .downlist_grid-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .child_grid-container {
+        grid-column: span 2;
+    }
+}
+
+/* =====================================================================================
+                             REPONSIVE FOR TABLET
+  =====================================================================================*/
+/* Tablet: width >= 740 px and width <1024 px */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {}

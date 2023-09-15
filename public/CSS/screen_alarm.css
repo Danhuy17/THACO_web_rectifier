@@ -1,0 +1,87 @@
+/* =====================================================================================
+                                    SCREEN ALARM
+  =====================================================================================*/
+#Screen_Alarm {
+    overflow: auto;
+    position: absolute;
+    top: var(--tophead);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: var(--height);
+    background-color: var(--bgcolor);
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===============================================================
+                        UPPER - SEARCH BAR                                 
+=================================================================*/
+#input-alarm_search_start_date,
+#input-alarm_search_end_date {
+    font-family: var(--font);
+    font-size: 0.875rem;
+}
+
+/* ===============================================================
+                        LOWER - TABLE                                
+=================================================================*/
+#table_Alarm {
+    margin: 0 auto;
+    width: 90%;
+    border: solid white 2px;
+    font-size: 1rem;
+    text-align: left;
+    font-family: var(--font);
+    background-color: rgb(20, 25, 29);
+    color: rgb(255, 255, 255);
+    border-collapse: collapse;
+    overflow: auto;
+}
+
+#table_Alarm tr {
+    height: 50px;
+}
+
+#table_Alarm th,
+td {
+    padding: 8px 16px;
+    border: 1px solid white;
+}
+
+#table_Alarm th {
+    font-size: 20px;
+    background-color: var(--yellow);
+    color: rgb(61,77,35);
+    position: sticky;
+    top: 0;
+}
+
+#table_Alarm tr:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000000;
+}
+
+#table_Alarm tr:hover th {
+    background-color: var(--yellow);
+    color: rgb(61,77,35);
+}
+
+
+/* =====================================================================================
+                             REPONSIVE FOR MOBILE
+  =====================================================================================*/
+/* Mobile: width < 740 px */
+@media only screen and (max-width: 46.1875em){
+ 
+}
+
+/* =====================================================================================
+                             REPONSIVE FOR TABLET
+  =====================================================================================*/
+/* Table: width >= 740 px and width <1024 px */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+
+}

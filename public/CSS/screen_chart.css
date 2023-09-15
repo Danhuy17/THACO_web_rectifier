@@ -1,0 +1,99 @@
+#Screen_Chart {
+    overflow: auto;
+    position: absolute;
+    top: var(--tophead);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: var(--height);
+    background-color: var(--bgcolor);
+}
+
+#Screen_Chart canvas {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.chart {
+    position: relative;
+    max-width: 100%;
+    max-height: 80%;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.chart canvas {
+    width: 100% !important;
+}
+
+/* 3 SHAPE DUOI */
+.chart_container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 0 32px;
+}
+
+.chart_container-shape {
+    font-size: 0.875rem;
+    text-align: left;
+    font-family: var(--font);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2px;
+    height: 25px;
+    color: white;
+}
+
+.chart_container-box {
+    width: 90px;
+    color: #000;
+    height: 35px;
+    background-color: lightgray;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: inline-flex;
+    /* Sử dụng flexbox */
+    justify-content: center;
+    /* Căn giữa theo chiều ngang */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    margin-left: 20px;
+}
+
+
+.date-display {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-family: var(--font);
+    color: #ffffff;
+    font-size: 0.875rem;
+    text-align: center
+}
+
+
+/* =====================================================================================
+                             REPONSIVE FOR MOBILE
+  =====================================================================================*/
+/* Mobile: width < 740 px */
+@media only screen and (max-width: 46.1875em) {
+    .chart_container {
+        flex-direction: column;
+    }
+}
+
+/* =====================================================================================
+                             REPONSIVE FOR TABLET
+  =====================================================================================*/
+/* Tablet: width >= 740 px and width <1024 px */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {}

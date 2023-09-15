@@ -1,0 +1,189 @@
+/* =====================================================================================
+                                    SCREEN DATA
+  =====================================================================================*/
+#Screen_Data {
+    overflow: auto;
+    position: absolute;
+    top: var(--tophead);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: var(--height);
+    background-color: var(--bgcolor);
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* =====================================================================================
+                                      UPPER                                      
+=====================================================================================*/
+.data-upper {
+    flex: 1.5;
+    background-color: var(--headercolor);
+    margin: 1rem 1rem 0 1rem;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 12px;
+    gap: 24px;
+}
+
+/* ===============================================================
+                        UPPER - SPACE DIVISION                             
+=================================================================*/
+.data-upper_date {
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+}
+
+.data-upper_button {
+    flex: 5;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+/* ===============================================================
+                        UPPER - SEARCH BAR                                 
+=================================================================*/
+.label_search_start_date,
+.label_search_end_date,
+#input_search_start_date,
+#input_search_end_date {
+    font-family: var(--font);
+    font-size: 0.875rem;
+}
+
+.label_search_start_date,
+.label_search_end_date {
+    flex-shrink: 0;
+    width: 52px;
+}
+
+.data-upper_from, .data-upper_to {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+
+
+/* ===============================================================
+                        UPPER - BUTTON                                
+=================================================================*/
+.data-upper_button__style {
+    height: 30px;
+    border: none;
+    display: block;
+    cursor: pointer;
+    background-color: var(--yellow);
+    color: rgb(61,77,35);
+    font-family: var(--font);
+    text-align: center;
+    font-size: 0.8rem;
+    border-radius: 5px;
+}
+
+.data-upper_button__style:hover {
+    background-color: rgb(197, 127, 14);;
+    color: white;
+}
+
+.data-upper_button__style:active {
+    transform: scale(0.9);
+}
+
+
+/* =====================================================================================
+                                      LOWER                                      
+=====================================================================================*/
+.data-lower {
+    flex: 8.5;
+    background-color: var( --headercolor);
+    margin:1rem;
+    border-radius: 0.3rem;
+    overflow: auto;
+}
+
+
+/* ===============================================================
+                        LOWER - TABLE                                
+=================================================================*/
+#table_Data {
+    margin: 0 auto;
+    width: 90%;
+    border: solid white 2px;
+    font-size: 1rem;
+    text-align: left;
+    font-family: var(--font);
+    background-color: rgb(20, 25, 29);
+    color: rgb(255, 255, 255);
+    border-collapse: collapse;
+    overflow: auto;
+}
+
+#table_Data tr {
+    height: 50px;
+}
+
+#table_Data th,
+td {
+    padding: 8px 16px;
+    border: 1px solid white;
+}
+
+#table_Data th {
+    font-size: 20px;
+    background-color: var(--yellow);
+    color: rgb(61,77,35);
+    position: sticky;
+    top: 0;
+}
+
+#table_Data tr:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000000;
+}
+
+#table_Data tr:hover th {
+    background-color: var(--yellow);
+    color: rgb(61,77,35);
+}
+
+
+/* =====================================================================================
+                             REPONSIVE FOR MOBILE
+  =====================================================================================*/
+/* Mobile: width < 740 px */
+@media only screen and (max-width: 46.1875em){
+    .data-upper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .data-upper_button {
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        margin-bottom: 10px
+    }
+
+    #table_Data th {
+        font-size: 14px;
+    }
+}
+
+/* =====================================================================================
+                             REPONSIVE FOR TABLET
+  =====================================================================================*/
+/* Table: width >= 740 px and width <1024 px */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+    #table_Data th {
+        font-size: 20px;
+    }
+}

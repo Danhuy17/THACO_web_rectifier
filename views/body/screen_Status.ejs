@@ -1,0 +1,122 @@
+<!-- ______________CODE MÀN HÌNH TRẠNG THÁI______________ -->
+
+<div id="Screen_Status">
+
+    <!-- Phần Trên-->
+    <div class="uplist_grid-container">
+
+        <div id='stt_Show_MainPower_ON'>
+            <%= __('MAIN POWER READY') %>
+        </div>
+
+        <div id='stt_Alarm_OverVoltage'>
+            <%= __('OVERVOLTAGE WARNING') %>
+        </div>
+
+        <div id='stt_Safety_Door1'>
+            <%= __('SAFETY DOOR 1 OPEN') %>
+        </div>
+
+        <div id='stt_E_STOP'>
+            <%= __('E_STOP WARNING') %>
+                </p>
+        </div>
+
+        <div id='stt_Show_System_ReadyOK'>
+            <%= __('RECTIFIER READY') %>
+        </div>
+
+        <div id='stt_Alarm_OverCurrent'>
+            <%= __('OVERCURRENT WARNING') %>
+        </div>
+
+        <div id='stt_Safety_Door2'>
+            <%= __('SAFETY DOOR 2 OPEN') %>
+        </div>
+
+        <div id='stt_E_STOP_External'>
+            <%= __('EXTERNAL E_STOP') %>
+                </p>
+        </div>
+
+        <div id='stt_Lamp_General_Fault'>
+            <%= __('GENERAL FAULT') %>
+        </div>
+
+        <div id='stt_Alarm_LimitCurrent'>
+            <%= __('LIMITING CURRENT WARNING') %>
+        </div>
+
+        <div id='stt_Alarm_Volt_Abnormal'>
+            <%= __('ABNORMAL VOLTAGE') %>
+        </div>
+
+        <div id='stt_Alarm_CV_Fault'>
+            <%= __('CV FAULT') %>
+        </div>
+    </div>
+
+    <!-- Phần Dưới-->
+    <div class="downlist_grid-container">
+
+        <!-- Child 1-->
+        <div class="downlist_grid-child">
+            <div id='stt_The_first_disable' class="circle"></div>
+            <div id='stt_The_first_time_countdown' class="box_countdown"></div>
+            <p class="top_text_status">
+                <%= __('ENABLE PROCESS I') %>
+            </p>
+        </div>
+
+        <!-- Child 2-->
+        <div class="downlist_grid-child">
+            <p class="top_text_status">
+                <%= __('ENABLE PROCESS II') %>
+            </p>
+            <div id='stt_The_second_disable' class="circle"></div>
+            <div id='stt_The_second_time_countdown' class="box_countdown"></div>
+        </div>
+
+        <!--Child 3-->
+        <div class="child_grid-container">
+
+            <!-- 3 shape ngang -->
+            <div class="chill_grid-row_I">
+                <div>
+                    <%= __('DC VOLTAGE') %>
+                        <div id='stt_Show_Voltage_AD' class="child_grid-shape"></div>
+                </div>
+
+                <div>
+                    <%= __('DC CURRENT') %>
+                        <div id='stt_Show_Current_AD' class="child_grid-shape"></div>
+                </div>
+
+                <div>
+                    <%= __('GIVEN VOLTAGE') %>
+                        <div id='stt_ShowGiven_Voltage' class="child_grid-shape"></div>
+                </div>
+            </div>
+
+            <!-- 2 cột, mỗi cột 2 row -->
+            <div class="chill_grid-row_II">
+
+                <div id='stt_start'>
+                    <%= __('START') %>
+                </div>
+
+                <div id='stt_stop'>
+                    <%= __('STOP') %>
+                </div>
+
+                <div id='stt_Auto_Manuel'>
+                    <%= __('AUTOMATIC MODE') %>
+                </div>
+
+                <div id='stt_E_STOP_HMI'>
+                    <%= __('E_STOP OF HMI') %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
