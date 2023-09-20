@@ -1,4 +1,38 @@
-//__________SCREEN_TRẠNG THÁI__________
+// CURRENT DC
+socket.on('Show_Current_AD', function (data) {
+    document.querySelector('#stt_Show_Current_AD').textContent = data;
+});
+
+// VOLTAGE DC
+socket.on('Show_Voltage_AD', function (data) {
+    document.querySelector('#stt_Show_Voltage_AD').textContent = data;
+});
+
+socket.on('ShowGiven_Voltage', function (data) {
+    document.querySelector('#stt_ShowGiven_Voltage').textContent = data;
+});
+
+socket.on('The_first_time_countdown', function (data) {
+    document.querySelector('#stt_The_first_time_countdown').textContent = data;
+
+    var list = document.querySelector('#stt_The_first_time_countdown').classList
+    if (data) { // data is true
+        list.add("rectangle_status_green");
+    } else { // data is false
+        list.remove("rectangle_status_green");
+    }
+});
+
+socket.on('The_second_time_countdown', function (data) {
+    document.querySelector('#stt_The_second_time_countdown').textContent = data;
+
+    var list = document.querySelector('#stt_The_second_time_countdown').classList
+    if (data) {
+        list.add("rectangle_status_green");
+    } else {
+        list.remove("rectangle_status_green");
+    }
+});
 
 socket.on('Show_MainPower_ON', function (data) {
     var list = document.querySelector('#stt_Show_MainPower_ON').classList

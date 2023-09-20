@@ -11,7 +11,10 @@
     width: 100%;
     height: var(--height);
     background-color: var(--bgcolor);
+
 }
+
+
 /* ===============================================================
                              IMAGE                                   
 =================================================================*/
@@ -26,43 +29,33 @@
 /* ===============================================================
                              LIST                                   
 =================================================================*/
-.list-container {
+#Screen_Main .list-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     gap: 17px;
     margin: 22px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1.0);
+    border-radius: 30px;
 }
 
-.list-container .list-item {
-    background-color: var(--shapecolor);
-    color: rgb(255, 255, 255);
+#Screen_Main .list-container .list-item {
+    
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
     font-size: 1rem;
     font-family: var(--font);
 }
 
-.list-knob{
+#Screen_Main .list-knob{
     display: block !important;
     text-align: center;
     margin: 10px 0 -45px;
 }
 
-.list-text{
+#Screen_Main .list-text{
     text-align: center;
 }
-
-/* .list > div {
-    background-color: var(--shapecolor);
-    color: rgb(255, 255, 255);
-    border-radius: 5px;
-    border: none;
-    font-size: 1rem;
-    font-family: var(--font);
-    align-items: center;
-    padding: 12px 32px;
-} */
-
 
 /* ===============================================================
                         SHAPE MODULE FAULT                                   
@@ -89,8 +82,8 @@
 }
 
 .inner_shape_fault {
-    background-color: white;
-    color: black;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     width: 200px;
     height: 70px;
     display: inline-block;
@@ -103,7 +96,7 @@
   =====================================================================================*/
 /* Mobile: width < 740 px */
 @media only screen and (max-width: 46.1875em) {
-    .list-container {
+    #Screen_Main .list-container {
         grid-template-columns: 1fr;
     }
 }
@@ -113,6 +106,8 @@
   =====================================================================================*/
 /* Table: width >= 740 px and width <1024 px */
 @media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
-
+    #Screen_Main .list-container {
+        grid-template-columns: 1fr 1fr 1fr ;
+    }
 
 }

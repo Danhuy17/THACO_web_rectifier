@@ -1,0 +1,327 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Duy Anh - R&D">
+    <title> <%= __('RECTIFIER MONITORING SYSTEM') %> </title>
+
+    <script src="socket.io/socket.io.js"></script>
+    
+
+    <!--______________KHỞI TẠO SOCKET.IO______________ -->
+    <script>
+        var socket = io("localhost:3000")
+        socket.on('error', function (message) {
+            alert(message);
+        });
+    </script>
+
+    <!--______________KHAI BÁO CÁC SOURCE______________ -->
+    <script src="https://kit.fontawesome.com/212982cf09.js" crossorigin="anonymous"></script>
+    <script src="js/plotly-2.8.3.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
+    <script src="js/FileSaver.js"></script>
+
+    <!--______________ĐƯỜNG DẪN CÁC FILE FUNCTION JS______________ -->
+    <script src="js/FC1_Common.js"></script>
+
+
+
+    <!--______________ĐƯỜNG DẪN CSS______________ -->
+    <link rel="stylesheet" href="CSS/root.css">
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/screen_Setting.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+    <!--______________ĐƯỜNG DẪN FAVICON______________ -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+    <!-- Body -->
+    <div id="Screen_Setting">
+    
+        <!-- Danh sách các cài đặt -->
+        <div class="list-container">
+    
+            <!-- điện áp hoạt động CK 1 -->
+            <div class="list-item">
+                <div class="list-knob">
+                    <input type="text" value="75" class="knob-Work_Voltage_1" data-value="75">
+                    <script>
+                        $(".knob-Work_Voltage_1").knob({
+                            'width': 180,
+                            'height': 180,
+                            'fgColor': "#FF0000",
+                            'inputColor': "FF0000",
+                            'min': 0,
+                            'max': 2000,
+                            'angleArc': 250,
+                            'angleOffset': -125
+                        });
+                    </script>
+                </div>
+                <p class="list-text">
+                    <%= __('THE FIRST OPERATING VOLTAGE') %>
+                </p>
+            </div>
+    
+            <!-- điện áp hoạt động CK 2 -->
+            <div class="list-item">
+                <div class="list-knob">
+                    <input type="text" value="75" class="knob-Work_Voltage_2" data-value="75">
+                    <script>
+                        $(".knob-Work_Voltage_2").knob({
+                            'width': 180,
+                            'height': 180,
+                            'fgColor': "#FF0000",
+                            'inputColor': "FF0000",
+                            'min': 0,
+                            'max': 2000,
+                            'angleArc': 250,
+                            'angleOffset': -125
+                        });
+                    </script>
+                </div>
+                <p class="list-text">
+                    <%= __('THE SECOND OPERATING VOLTAGE') %>
+                </p>
+            </div>
+            
+            <!-- Thời gian còn lại CK 1 -->
+            <div class="list-item">
+                <div class="list-knob">
+                    <input type="text" value="75" class="knob-first_timekeeping" data-value="75">
+                    <script>
+                        $(".knob-first_timekeeping").knob({
+                            'width': 180,
+                            'height': 180,
+                            'fgColor': "#FF0000",
+                            'inputColor': "FF0000",
+                            'min': 0,
+                            'max': 2000,
+                            'angleArc': 250,
+                            'angleOffset': -125
+                        });
+                    </script>
+                </div>
+                <p class="list-text">
+                    <%= __('THE FIRST TIME KEEPING') %>
+                </p>
+            </div>
+    
+            <!-- Thời gian còn lại CK 2 -->
+            <div class="list-item">
+                <div class="list-knob">
+                    <input type="text" value="75" class="knob-second_timekeeping" data-value="75">
+                    <script>
+                        $(".knob-second_timekeeping").knob({
+                            'width': 180,
+                            'height': 180,
+                            'fgColor': "#FF0000",
+                            'inputColor': "FF0000",
+                            'min': 0,
+                            'max': 2000,
+                            'angleArc': 250,
+                            'angleOffset': -125
+                        });
+                    </script>
+                </div>
+                <p class="list-text">
+                    <%= __('THE SECOND TIME KEEPING') %>
+                </p>
+            </div>
+    
+             <!-- Thời gian điện áp tăng -->
+             <div class="list-item">
+                <div class="list-knob">
+                    <input type="text" value="75" class="knob-Voltage_Time" data-value="75">
+                    <script>
+                        $(".knob-Voltage_Time").knob({
+                            'width': 180,
+                            'height': 180,
+                            'fgColor': "#FF0000",
+                            'inputColor': "FF0000",
+                            'min': 0,
+                            'max': 2000,
+                            'angleArc': 250,
+                            'angleOffset': -125
+                        });
+                    </script>
+                </div>
+                <p class="list-text">
+                    <%= __('VOLTAGE UP TIME') %>
+                </p>
+            </div>
+    
+            <!-- Thời gian điện áp giảm  -->
+            <div class="list-item">
+                <div class="list-knob">
+                    <input type="text" value="75" class="knob-Down_Voltage" data-value="75">
+                    <script>
+                        $(".knob-Down_Voltage").knob({
+                            'width': 180,
+                            'height': 180,
+                            'fgColor': "#FF0000",
+                            'inputColor': "FF0000",
+                            'min': 0,
+                            'max': 2000,
+                            'angleArc': 250,
+                            'angleOffset': -125
+                        });
+                    </script>
+                </div>
+                <p class="list-text">
+                    <%= __('VOLTAGE DOWN TIME') %>
+                </p>
+            </div>
+    
+            <!-- điện áp bảo vệ -->
+            <div class="list-item">
+                <div class="list-knob">
+                    <input type="text" value="75" class="knob-Protect_Voltage" data-value="75">
+                    <script>
+                        $(".knob-Protect_Voltage").knob({
+                            'width': 180,
+                            'height': 180,
+                            'fgColor': "#FF0000",
+                            'inputColor': "FF0000",
+                            'min': 0,
+                            'max': 2000,
+                            'angleArc': 250,
+                            'angleOffset': -125
+                        });
+                    </script>
+                </div>
+                <p class="list-text">
+                    <%= __('PROTECT VOLTAGE SETTING') %>
+                </p>
+            </div>
+    
+            <!-- Dòng giới hạn -->
+            <div class="list-item">
+                <div class="list-knob">
+                    <input type="text" value="75" class="knob-Given_Current" data-value="75">
+                    <script>
+                        $(".knob-Given_Current").knob({
+                            'width': 180,
+                            'height': 180,
+                            'fgColor': "#FF0000",
+                            'inputColor': "FF0000",
+                            'min': 0,
+                            'max': 2000,
+                            'angleArc': 250,
+                            'angleOffset': -125
+                        });
+                    </script>
+                </div>
+                <p class="list-text">
+                    <%= __('LIMITED CURRENT SETTING') %>
+                </p>
+            </div>
+    
+            <!-- Quá dòng -->
+            <div class="list-item">
+                <div class="list-knob">
+                    <input type="text" value="75" class="knob-OverCurrent" data-value="75">
+                    <script>
+                        $(".knob-OverCurrent").knob({
+                            'width': 180,
+                            'height': 180,
+                            'fgColor': "#FF0000",
+                            'inputColor': "FF0000",
+                            'min': 0,
+                            'max': 2000,
+                            'angleArc': 250,
+                            'angleOffset': -125
+                        });
+                    </script>
+                </div>
+                <p class="list-text">
+                    <%= __('OVER CURRENT SETTING') %>
+                </p>
+            </div>
+    
+            <!-- Quá áp -->
+            <div class="list-item">
+                <div class="list-knob">
+                    <input type="text" value="75" class="knob-OverVoltage" data-value="75">
+                    <script>
+                        $(".knob-OverVoltage").knob({
+                            'width': 180,
+                            'height': 180,
+                            'fgColor': "#FF0000",
+                            'inputColor': "FF0000",
+                            'min': 0,
+                            'max': 2000,
+                            'angleArc': 250,
+                            'angleOffset': -125
+                        });
+                    </script>
+                </div>
+                <p class="list-text">
+                    <%= __('OVER VOLTAGE SETTING') %>
+                </p>
+            </div>
+    
+            <!-- Giá trị quá nhiệt -->
+            <div class="list-item">
+                <div class="list-knob">
+                    <input type="text" value="75" class="knob-LimitTemp" data-value="75">
+                    <script>
+                        $(".knob-LimitTemp").knob({
+                            'width': 180,
+                            'height': 180,
+                            'fgColor': "#FF0000",
+                            'inputColor': "FF0000",
+                            'min': 0,
+                            'max': 2000,
+                            'angleArc': 250,
+                            'angleOffset': -125
+                        });
+                    </script>
+                </div>
+                <p class="list-text">
+                    <%= __('OVER TEMP SETTING') %>
+                </p>
+            </div>
+    
+            <!-- Gía trị nhiệt độ cao -->
+            <div class="list-item">
+                <div class="list-knob">
+                    <input type="text" value="75" class="knob-OverTemp" data-value="75">
+                    <script>
+                        $(".knob-OverTemp").knob({
+                            'width': 180,
+                            'height': 180,
+                            'fgColor': "#FF0000",
+                            'inputColor': "FF0000",
+                            'min': 0,
+                            'max': 2000,
+                            'angleArc': 250,
+                            'angleOffset': -125
+                        });
+                    </script>
+                </div>
+                <p class="list-text">
+                    <%= __('HIGH TEMP SETTING') %>
+                </p>
+            </div>
+    
+    
+        </div>
+    </div>
+    <!-- End Body -->
+
+    <!-- Header -->
+    <%- include ('header.ejs') %>
+
+    <!--______________KHAI BÁO CÁC FILE SOCKET______________ -->
+    <script src="/js/socket/setting.js"></script>
+
+</body>

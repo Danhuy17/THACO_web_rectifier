@@ -39,10 +39,13 @@
 =================================================================*/
 .header-logo{
     width: 10%;
+    height: auto;
     margin-left: 30px;
     cursor: pointer;
     display: block; /*Mobile thi hidden */
 }
+
+
 .header-logo:hover {
     filter: brightness(1.1);
 }
@@ -245,8 +248,17 @@
 }
 .nav_slide-button i {
     display: inline-block;
+    width: 0%;
     vertical-align: middle;
-    margin: 0 10%;
+    margin: 0px 10%;
+    line-height: 50px;
+}
+.nav_slide-button a {
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
 }
 .nav_slide-button:hover{
     background-color: var(--barhover);
@@ -292,7 +304,10 @@
     max-width: 75%;
     height: auto;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   #navImage:active {

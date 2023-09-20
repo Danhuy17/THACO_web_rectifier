@@ -278,7 +278,7 @@ server.listen(3000, () => {
     console.log("Connected to server on port 3000");
 });
 
-app.get("/", function (req, res) {
+function setLanguage(req, res, next) {
     let currentLang = req.getLocale();
     let displayLang;
 
@@ -288,11 +288,42 @@ app.get("/", function (req, res) {
         displayLang = "LANGUAGE";
     }
 
-    res.render("home", {
-        displayLang: displayLang,
-        currentLang: currentLang
-    });
+    res.locals.displayLang = displayLang;  // Dùng res.locals để truyền biến giữa middleware và routes
+    res.locals.currentLang = currentLang;
+
+    next();
+}
+app.use(setLanguage);
+
+// ROUTE
+app.get("/", function (req, res) {
+    res.render("screen_Main");
 });
+
+app.get("/status", function(req, res) {
+    res.render("screen_Status");
+});
+
+app.get("/setting", function(req, res) {
+    res.render("screen_Setting");
+});
+
+app.get("/chart", function(req, res) {
+    res.render("screen_Chart");
+});
+
+app.get("/data", function(req, res) {
+    res.render("screen_Data");
+});
+
+app.get("/modules", function(req, res) {
+    res.render("screen_Module");
+});
+
+app.get("/alarm", function(req, res) {
+    res.render("screen_Alarm");
+});
+
 
 /*================================================================
                      F.3 THIẾT LẬP i18n                          
@@ -614,7 +645,8 @@ io.on("connection", function (socket) {
 io.on("connection", function (socket) {
     socket.on("msg_Data_Show", function (data) {
         var sqltable_Name = "plc_data";
-        var query = "SELECT * FROM " + sqltable_Name + " ORDER BY Date DESC LIMIT 1000;";
+        // Cài đặt số lượng data truy vấn khi nhấn nút fresh: 3600 data ~ 1 hour
+        var query = "SELECT * FROM " + sqltable_Name + " ORDER BY Date DESC LIMIT 3600;";
         sqlcon.query(query, function (err, results, fields) {
             if (err) {
                 console.log(err);
